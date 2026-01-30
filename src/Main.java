@@ -45,7 +45,7 @@ public class Main {
                     dataHora.ajustaVencimento();
                     break;
                 case 6:
-                    System.out.println("Funcionalidade temporariamente indisponível!");
+                    dataHora.verificaEvento();
                     break;
                 case 7:
                     System.out.println("Funcionalidade temporariamente indisponível!");

@@ -82,4 +82,20 @@ public class DataHora {
 
         System.out.println("Data de entrega: " + dataVencimento.format(dataFormatada));
     }
+
+    public void verificaEvento() {
+        System.out.print("Digite a data do evento (dd-MM-yyyy): ");
+        String dataEvento = leitura.nextLine();
+
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate dataEventoFormatada = LocalDate.parse(dataEvento, dataFormatada);
+
+        if (dataEventoFormatada.isBefore(LocalDate.now())) {
+            System.out.println("O evento já ocorreu.");
+        } else if (dataEventoFormatada.isEqual(LocalDate.now())) {
+            System.out.println("O evento é hoje!");
+        } else {
+            System.out.println("O evento já ocorreu.");
+        }
+    }
 }
