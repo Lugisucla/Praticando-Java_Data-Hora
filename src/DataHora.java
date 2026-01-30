@@ -69,4 +69,17 @@ public class DataHora {
 
         System.out.println("Data de entrega: " + dataEntrega.format(dataFormatada));
     }
+
+    public void ajustaVencimento() {
+        System.out.print("Digite a data (dd-MM-yyyy): ");
+        String dataTexto = leitura.nextLine();
+        System.out.println("Digite o número de meses para o vencimento: ");
+        int mesesVencimento = leitura.nextInt();
+
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate dataInicioFormatada = LocalDate.parse(dataTexto, dataFormatada);
+        LocalDate dataVencimento = dataInicioFormatada.plusMonths(mesesVencimento);
+
+        System.out.println("Data de entrega: " + dataVencimento.format(dataFormatada));
+    }
 }

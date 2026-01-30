@@ -42,7 +42,7 @@ public class Main {
                     dataHora.dataEntrega();
                     break;
                 case 5:
-                    System.out.println("Funcionalidade temporariamente indisponível!");
+                    dataHora.ajustaVencimento();
                     break;
                 case 6:
                     System.out.println("Funcionalidade temporariamente indisponível!");
