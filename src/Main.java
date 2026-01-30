@@ -39,7 +39,7 @@ public class Main {
                     dataHora.diferencaHorasMinutos();
                     break;
                 case 4:
-                    System.out.println("Funcionalidade temporariamente indisponível!");
+                    dataHora.dataEntrega();
                     break;
                 case 5:
                     System.out.println("Funcionalidade temporariamente indisponível!");

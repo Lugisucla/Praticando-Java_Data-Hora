@@ -56,4 +56,17 @@ public class DataHora {
 
         System.out.println("Diferença de tempo:" + duracao.toHours() + " horas e " + duracao.toMinutesPart() + " minutos");
     }
+
+    public void dataEntrega() {
+        System.out.print("Digite a data (dd-MM-yyyy): ");
+        String dataTexto = leitura.nextLine();
+        System.out.println("Digite o prazo em dias: ");
+        int diasPrazo = leitura.nextInt();
+
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate dataInicioFormatada = LocalDate.parse(dataTexto, dataFormatada);
+        LocalDate dataEntrega = dataInicioFormatada.plusDays(diasPrazo);
+
+        System.out.println("Data de entrega: " + dataEntrega.format(dataFormatada));
+    }
 }
