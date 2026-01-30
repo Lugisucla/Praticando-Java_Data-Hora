@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class DataHora {
@@ -23,5 +24,14 @@ public class DataHora {
         } else if (relatorio.equalsIgnoreCase("N")) {
             System.out.println("Nenhum relatório será criado.");
         }
+    }
+
+    public void formataDataHoraAtual() {
+        LocalDate dataAtual = LocalDate.now();
+        LocalTime horaAtual = LocalTime.now();
+        DateTimeFormatter dataAtualformatada = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter horaAtualformatada = DateTimeFormatter.ofPattern("HH:mm");
+
+        System.out.println("Data atual formatada: " +  dataAtual.format(dataAtualformatada) + "\nHora atual formatada: " + horaAtual.format(horaAtualformatada));
     }
 }

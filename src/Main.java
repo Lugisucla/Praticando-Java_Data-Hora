@@ -33,7 +33,7 @@ public class Main {
                     dataHora.dataHoraAtual();
                     break;
                 case 2:
-                    System.out.println("Funcionalidade temporariamente indisponível!");
+                    dataHora.formataDataHoraAtual();
                     break;
                 case 3:
                     System.out.println("Funcionalidade temporariamente indisponível!");
