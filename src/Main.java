@@ -36,7 +36,7 @@ public class Main {
                     dataHora.formataDataHoraAtual();
                     break;
                 case 3:
-                    System.out.println("Funcionalidade temporariamente indisponível!");
+                    dataHora.diferencaHorasMinutos();
                     break;
                 case 4:
                     System.out.println("Funcionalidade temporariamente indisponível!");

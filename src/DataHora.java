@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -5,10 +6,10 @@ import java.util.Scanner;
 
 public class DataHora {
     Scanner leitura = new Scanner(System.in);
+    LocalDate dataAtual = LocalDate.now();
+    LocalTime horaAtual = LocalTime.now();
 
     public void dataHoraAtual() {
-        LocalDate dataAtual = LocalDate.now();
-        LocalTime horaAtual = LocalTime.now();
         String relatorio;
 
         System.out.println("Enviar relatório semanal? (S/N)");
@@ -27,11 +28,32 @@ public class DataHora {
     }
 
     public void formataDataHoraAtual() {
-        LocalDate dataAtual = LocalDate.now();
-        LocalTime horaAtual = LocalTime.now();
         DateTimeFormatter dataAtualformatada = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         DateTimeFormatter horaAtualformatada = DateTimeFormatter.ofPattern("HH:mm");
 
         System.out.println("Data atual formatada: " +  dataAtual.format(dataAtualformatada) + "\nHora atual formatada: " + horaAtual.format(horaAtualformatada));
+    }
+
+    public void diferencaHorasMinutos() {
+        int horaInicio;
+        int minutoInicio;
+        int horaTermino;
+        int minutoTermino;
+
+        System.out.println("Digite a hora de início da atividade:");
+        horaInicio = leitura.nextInt();
+        System.out.println("Digite os minutos do início da atividade:");
+        minutoInicio = leitura.nextInt();
+
+        System.out.println("Digite a hora do término da atividade:");
+        horaTermino = leitura.nextInt();
+        System.out.println("Digite os minutos do término da atividade:");
+        minutoTermino = leitura.nextInt();
+
+        LocalTime inicio = LocalTime.of(horaInicio, minutoInicio);
+        LocalTime termino = LocalTime.of(horaTermino, minutoTermino);
+        Duration duracao = Duration.between(inicio, termino);
+
+        System.out.println("Diferença de tempo:" + duracao.toHours() + " horas e " + duracao.toMinutesPart() + " minutos");
     }
 }
