@@ -1,6 +1,4 @@
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -116,5 +114,14 @@ public class DataHora {
         } else {
             System.out.println("Nenhum vencimento recente.");
         }
+    }
+
+    public void fusoHorario() {
+        DateTimeFormatter horaFormatada = DateTimeFormatter.ofPattern("HH:mm:ss");
+        ZonedDateTime horaAtualBrasil = ZonedDateTime.now(ZoneId.of("America/Sao_Paulo"));
+        ZonedDateTime horaAtualToquio = horaAtualBrasil.withZoneSameInstant(ZoneId.of("Asia/Tokyo"));
+
+        System.out.println("Horário atual em São Paulo: " + horaAtualBrasil.format(horaFormatada));
+        System.out.println("Horário atual em Tóquio: " + horaAtualToquio.format(horaFormatada));
     }
 }

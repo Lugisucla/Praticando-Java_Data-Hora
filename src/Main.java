@@ -51,7 +51,7 @@ public class Main {
                     dataHora.lembretePagamento();
                     break;
                 case 8:
-                    System.out.println("Funcionalidade temporariamente indisponível!");
+                    dataHora.fusoHorario();
                     break;
                 case 9:
                     System.out.println("Funcionalidade temporariamente indisponível!");
