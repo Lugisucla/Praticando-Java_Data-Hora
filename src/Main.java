@@ -57,7 +57,7 @@ public class Main {
                     dataHora.converteFuso();
                     break;
                 case 10:
-                    System.out.println("Funcionalidade temporariamente indisponível!");
+                    dataHora.controlaExpediente();
                     break;
                 case 0:
                     System.out.println("Saindo do programa...");

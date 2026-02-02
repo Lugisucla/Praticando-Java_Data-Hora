@@ -1,5 +1,6 @@
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class DataHora {
@@ -133,5 +134,37 @@ public class DataHora {
 
         System.out.println("Horário atual em São Paulo: " + horaAtualBrasil.format(horaFormatada));
         System.out.println("Horário atual em Sydney: " + horaAtualSydney.format(horaFormatada));
+    }
+
+    public void controlaExpediente() {
+        DateTimeFormatter horaMinuto = DateTimeFormatter.ofPattern("HH:mm");
+
+        System.out.println("Digite o horário de entrada (HH:mm): ");
+        LocalTime horarioEntrada = LocalTime.parse(leitura.next(), horaMinuto);
+
+        System.out.println("Digite a carga horária diária (em horas):");
+        int cargaHoraria = leitura.nextInt();
+
+        System.out.println("Digite o horário real de saída (HH:mm):");
+        LocalTime horarioRealSaida = LocalTime.parse(leitura.next(), horaMinuto);
+
+        LocalTime horarioPrevistoSaida = horarioEntrada.plusHours(cargaHoraria);
+
+        System.out.println("Horário de entrada: " + horarioEntrada);
+        System.out.println("Horário de saída previsto: " + horarioPrevistoSaida);
+        System.out.println("Horário real de saída: " + horarioRealSaida);
+
+        int minutosPrevisto = horarioPrevistoSaida.getHour() * 60 + horarioPrevistoSaida.getMinute();
+        int minutosReal = horarioRealSaida.getHour() * 60 + horarioRealSaida.getMinute();
+        int minutosSaldo = minutosReal - minutosPrevisto;
+
+        if (minutosSaldo > 0) {
+            System.out.println("Saldo de horas: +" + (minutosSaldo / 60) + "h " + (minutosSaldo % 60) + "min");
+        } else if (minutosSaldo < 0) {
+            minutosSaldo = Math.abs(minutosSaldo);
+            System.out.println("Saldo de horas: -" + (minutosSaldo / 60) + "h " + (minutosSaldo % 60) + "min");
+        } else {
+            System.out.println("Saldo de horas: 0h");
+        }
     }
 }
