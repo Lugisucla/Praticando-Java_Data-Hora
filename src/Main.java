@@ -54,7 +54,7 @@ public class Main {
                     dataHora.fusoHorario();
                     break;
                 case 9:
-                    System.out.println("Funcionalidade temporariamente indisponível!");
+                    dataHora.converteFuso();
                     break;
                 case 10:
                     System.out.println("Funcionalidade temporariamente indisponível!");

@@ -124,4 +124,14 @@ public class DataHora {
         System.out.println("Horário atual em São Paulo: " + horaAtualBrasil.format(horaFormatada));
         System.out.println("Horário atual em Tóquio: " + horaAtualToquio.format(horaFormatada));
     }
+
+    public void converteFuso() {
+        DateTimeFormatter horaFormatada = DateTimeFormatter.ofPattern("HH:mm");
+        ZonedDateTime horaAtualBrasil = ZonedDateTime.now(ZoneId.of("America/Sao_Paulo"));
+        ZonedDateTime horaAtualSydney = horaAtualBrasil.withZoneSameInstant(ZoneId.of("Australia/Sydney"));
+
+
+        System.out.println("Horário atual em São Paulo: " + horaAtualBrasil.format(horaFormatada));
+        System.out.println("Horário atual em Sydney: " + horaAtualSydney.format(horaFormatada));
+    }
 }
