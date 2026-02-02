@@ -48,7 +48,7 @@ public class Main {
                     dataHora.verificaEvento();
                     break;
                 case 7:
-                    System.out.println("Funcionalidade temporariamente indisponível!");
+                    dataHora.lembretePagamento();
                     break;
                 case 8:
                     System.out.println("Funcionalidade temporariamente indisponível!");

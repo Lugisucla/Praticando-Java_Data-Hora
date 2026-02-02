@@ -98,4 +98,23 @@ public class DataHora {
             System.out.println("O evento já ocorreu.");
         }
     }
+
+    public void lembretePagamento() {
+        System.out.println("Digite a data do vencimento (dd-MM-yyyy): ");
+        String dataVencimento = leitura.nextLine();
+
+        System.out.println("Digite a quantidade de dias restantes para começar a receber o lembrete: ");
+        int diasFaltando = leitura.nextInt();
+
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate dataVencimentoFormatada = LocalDate.parse(dataVencimento, dataFormatada);
+        LocalDate inicioLembrete = dataVencimentoFormatada.minusDays(diasFaltando);
+
+        if (!dataAtual.isBefore(inicioLembrete) &&
+                !dataAtual.isAfter(dataVencimentoFormatada)) {
+            System.out.println("Data do lembrete: " + inicioLembrete.format(dataFormatada));
+        } else {
+            System.out.println("Nenhum vencimento recente.");
+        }
+    }
 }
